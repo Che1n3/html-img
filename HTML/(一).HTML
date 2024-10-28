@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 控制頁面的顯示方式。網頁寬=頁面寬，縮放比=1.0(以正常大小顯示) -->
+    <title>履歷表</title><!-- 標題 -->
+    <style>
+        * {
+            margin: 0;/* 外邊距設置為0 */
+            padding: 0;/* 內邊距設置為0 */
+            box-sizing: border-box;/* 控制高.寬如何計算:表示總寬.總高 */
+        }/* 9-11表示去掉外.內邊距，使所有元素高.寬一致 */
+
+        body {
+            font-family: Arial, sans-serif; /* 頁面文字。使用前者，不行則換後者 */
+            background-color: #f4f4f4;/* 背景顏色 */
+            color: #000000;/* 文字顏色 */
+            line-height: 1.6;/* 行高。設定字體1.6倍大小的行高 */
+            padding: 20px;/* 內邊距設置為20(頁面邊界與履歷表邊界之間的高度) */
+        }
+                    
+        h1, h2 {/* 第一標題及第二標題 */
+            color: #333;/* 標題顏色 */
+        }
+
+        h1 {
+            text-align: center;/* 文字置中 */
+            margin-bottom: 20px;/* 增加標題和內文的空間 */             
+        }
+        .profile {/* 個人資料頁面 */
+            display: flex;/* 將profile設置為彈性盒子，能夠靈活排列內文 */
+            justify-content: space-between;/* 第一個和最後一個內文對齊邊緣 */
+            margin-bottom: 30px;/* 在profile內文底部添30間格的外邊距 */
+        }
+
+        .profile img {/* 個人資料頁面圖片 */
+            border-radius: 0;/* 顯示為矩形 */
+            width: 150px;
+            height: 200px;
+            object-fit: cover;/* 確保圖片適當裁剪並保持比例 */
+        }
+
+        .profile-info {/* 個人資料頁面內容 */
+            flex: 1;/* 使profile-info占據可用的剩餘空間，自動適應邊界的大小 */
+            padding-left: 30px;/* 在左側添加30間隔的內邊距 */
+        }
+
+        .profile-info h2 {/* 個人資料頁面標題 */
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        .profile-info p {/* 個人資料頁面細內文 */
+            margin-bottom: 10px;
+            font-size: 16px;/* 將段落文字的字體大小設置為16 */
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #b4b4b4; /* 改為灰色 */
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #000; /* 改為黑色 */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 120px; /* 調整寬度 */
+            padding: 3px; /* 調整內邊距 */
+            margin-bottom: 10px; /* 下邊距 */
+        }
+
+        .job-list, .education-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .job-list li, .education-list li {
+            margin-bottom: 10px;
+        }
+
+        .job-list .title, .education-list .title {
+            font-weight: bold;
+        }
+
+        .job-list .duration, .education-list .duration {
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>履歷表</h1>
+
+        <!-- 個人資料 -->
+        <div class="profile">
+            <img src="個人照片.jpg" alt="個人照片">
+            <div class="profile-info">
+                <h2>陳芊淳</h2>
+                <p>電話: 0900-000-000</p>
+                <p>電子郵件: C113138121@nkust.edu.tw</p>
+                <p>通訊地址: 高雄市三民區</p>
+            </div>
+        </div>
+
+        <!-- 自我介紹 -->
+        <div class="section">
+            <h2>自我介紹</h2>
+            <p>年齡: <input type="number" name="txtAge" placeholder="19"></p>
+            <p>出生日期: <input type="date" name="txtBirthdate"placeholder="2005/01/03"></p>
+            <p>籍貫: <input type="text" name="txtHometown" placeholder="台灣"></p>
+            <p>血型: <input type="text" name="txtBloodType" placeholder="B型"></p>
+            <p>身高: <input type="number" name="txtHeight" placeholder="167.5"> cm</p>
+            <p>體重: <input type="number" name="txtWeight" placeholder="50"> kg</p>
+            <p>身分證字號: <input type="text" name="txtID" placeholder="V223456789"></p>
+        </div>
+
+        <!-- 性別與學歷 -->
+        <div class="section">
+            <h2>性別與學歷</h2>
+            <form>
+                <p>性別: 
+                    <input type="radio" name="radGender" value="1">男
+                    <input type="radio" name="radGender" value="0" checked>女
+                </p>
+                <p>學歷: 
+                    <input type="radio" name="radEdu" value="1">國小
+                    <input type="radio" name="radEdu" value="2">國中
+                    <input type="radio" name="radEdu" value="3">高中職
+                    <input type="radio" name="radEdu" value="4" checked>大學
+                    <input type="radio" name="radEdu" value="5">碩博士
+                </p>
+                <p>持有駕照: 
+                    <input type="radio" name="radcar" value="1" checked>機車
+                    <input type="radio" name="radcar" value="2">汽車
+                    <input type="radio" name="radcar" value="3">皆無
+                    <input type="radio" name="radcar" value="4">皆有
+                </p>
+            </form>
+        </div>
+
+        <!-- 婚姻狀況 -->
+        <div class="section">
+            <h2>婚姻狀況</h2>
+            <label for="marital-status">已婚未婚:</label>
+            <select id="marital-status" name="marital-status">
+                <option value="未婚">未婚</option>
+                <option value="已婚">已婚</option>
+                <option value="離婚">離婚</option>
+                <option value="喪偶">喪偶</option>
+            </select>
+            <label for="children-count">育有幾子:</label>
+            <select id="children-count" name="children-count">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5以上">5</option>
+            </select>
+        </div>
+
+        <!-- 教育背景 -->
+        <div class="section">
+            <h2>教育背景</h2>
+            <ul class="education-list">
+                <li>
+                    <p class="title">國立成功商水</p>
+                    <p class="degree">商業服務學程(畢業)</p>
+                    <p class="duration">2020年 9月 – 2023年 6月</p>
+                    <p class="title">國立高雄科技大學</p>
+                    <p class="degree">國際金融技優專班(就學中)</p>
+                    <p class="duration">2024年 9月 – 待定</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 工作經驗 -->
+        <div class="section">
+            <h2>工作經驗</h2>
+            <ul class="job-list">
+                <li>
+                    <p class="title">手搖飲店員</p>
+                    <p class="company">鮮x茶</p>
+                    <p class="duration">2020年 8月 – 2023年 3月</p>
+                    <p>負責調製飲料、保持環境整潔、結帳。</p>
+                </li>
+                <li>
+                    <p class="title">家xx收銀員</p>
+                    <p class="company">家xx公司</p>
+                    <p class="duration">2023年 8月 – 2024年 2月</p>
+                    <p>結帳、回復客人的疑難雜症。</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 技能證照 -->
+        <div class="section">
+            <h2>技能證照</h2>
+            <ul>
+                <li>技能證照: 門市服務-丙, 會計資訊-丙, 軟體應用-乙、丙</li>
+                <li>其他證照: TQC、MOS2016</li>
+            </ul>
+        </div>
+
+        <!-- 期望待遇 -->
+        <div class="section">
+            <h2>期望待遇</h2>
+            <p> 依照勞基法。</p>
+        </div>
+
+        <!-- 備註 -->
+        <div class="section">
+            <h2>備註</h2>
+            <p></p> <!-- 備註空白 -->
+        </div>
+    </div>
+</body>
+
+</html>
